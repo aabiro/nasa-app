@@ -9,11 +9,12 @@ const jwt = require('express-jwt');
 const jwks = require('jwks-rsa');
 const dragonsJson = require('./dragons.json');
 const config = require('./config.js');
+// var morgan     = require('morgan');
+//
+// // configure app
+// app.use(morgan('dev')); // log requests to the console
 
 //-- JWT check
-
-// @TODO: Remove .SAMPLE from /server/config.js.SAMPLE
-// and update with your proper Auth0 information
 
 const jwtCheck = jwt({
     secret: jwks.expressJwtSecret({
@@ -32,10 +33,154 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 
-//--- GET protected dragons route
-app.get('/api/dragons', jwtCheck, function (req, res) {
-  res.json(dragonsJson);
+var mongoose   = require('mongoose');
+mongoose.connect('mongodb://localhost:27017/bears', { useMongoClient: true }); // connect to our database
+
+// Handle the connection event
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+
+db.once('open', function() {
+  console.log("DB connection alive");
 });
+
+// Bear models lives here
+var Bear = require('../src/app/models/bear');
+
+// ROUTES FOR OUR API
+// =============================================================================
+
+// create our router
+var router = express.Router();
+
+// middleware to use for all requests
+router.use(function(req, res, next) {
+	// do logging
+	console.log('Something is happening.');
+	next();
+});
+
+// test route to make sure everything is working (accessed at GET http://localhost:8080/api)
+// router.get('/', function(req, res) {
+// 	res.json({ message: 'hooray! welcome to our api!' });
+// });
+
+// serve files in static' folder at root URL '/'
+app.use('/', express.static('static'));
+
+// on routes that end in /bears
+// ----------------------------------------------------
+router.route('/bears')
+
+	// create a bear (accessed at POST http://localhost:8080/bears)
+	.post(function(req, res) {
+		console.log(req.body);
+		var bear = new Bear();		// create a new instance of the Bear model
+		bear.name = req.body.name;  // set the bears name (comes from the request)
+
+		bear.save(function(err) {
+			if (err)
+				res.send(err);
+
+			res.json({ message: 'Bear created!' + req.body.name });
+			console.log("Bear created: " + bear.name);
+		});
+
+
+	})
+
+	// get all the bears (accessed at GET http://localhost:8080/api/bears)
+	.get(function(req, res) {
+		Bear.find(function(err, bears) {
+			if (err)
+				res.send(err);
+
+			res.json(bears);
+		});
+	});
+
+// on routes that end in /bears/:bear_id
+// ----------------------------------------------------
+router.route('/bears/:bear_id')
+
+	// get the bear with that id
+	.get(function(req, res) {
+		Bear.findById(req.params.bear_id, function(err, bear) {
+			if (err)
+				res.send(err);
+			res.json(bear);
+		});
+	})
+
+	// update the bear with this id
+	.put(function(req, res) {
+		Bear.findById(req.params.bear_id, function(err, bear) {
+
+			if (err)
+				res.send(err);
+
+			bear.name = req.body.name;
+			bear.save(function(err) {
+				if (err)
+					res.send(err);
+
+				res.json({ message: 'Bear updated!' });
+			});
+
+		});
+	})
+
+	// delete the bear with this id
+	.delete(function(req, res) {
+		Bear.remove({
+			_id: req.params.bear_id
+		}, function(err, bear) {
+			if (err)
+				res.send(err);
+
+			res.json({ message: 'Successfully deleted' });
+		});
+	});
+
+
+// const https = require('https');
+//
+// https.get('https://api.nasa.gov/planetary/apod?api_key=MiPeV23XBjdbZie9qxzZlVwuE4XObLn68C3BcWjV', (resp) => {
+//   let data = '';
+//
+//   // A chunk of data has been recieved.
+//   resp.on('data', (chunk) => {
+//     data += chunk;
+//   });
+//
+//   // The whole response has been received. Print out the result.
+//   resp.on('end', () => {
+//     console.log(JSON.parse(data).explanation);
+//   });
+//
+// }).on("error", (err) => {
+//   console.log("Error: " + err.message);
+// });
+
+// const request = require('request');
+//
+// request('https://api.nasa.gov/planetary/apod?api_key=MiPeV23XBjdbZie9qxzZlVwuE4XObLn68C3BcWjV', { json: true }, (err, res, body) => {
+//   if (err) { return console.log(err); }
+//
+//   console.log(body.url);
+//   console.log(body.explanation);
+// });
+//
+// console.log(request.body);
+//
+// console.log(request.body.text);
+
+// --- GET protected dragons route
+// app.get('https://api.nasa.gov/planetary/apod?api_key=MiPeV23XBjdbZie9qxzZlVwuE4XObLn68C3BcWjV', jwtCheck, function (req, res) {
+//   console.log(res);
+//   res.json(dragonsJson);
+//
+// });
 
 //--- Port
 app.listen(3001);

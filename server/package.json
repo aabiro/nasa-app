@@ -10,7 +10,9 @@
   },
   "author": "Kim Maida",
   "license": "MIT",
-  "dependencies": {},
+  "dependencies": {
+    "request": "^2.81.0"
+  },
   "devDependencies": {
     "body-parser": "^1.17.1",
     "cors": "^2.8.3",

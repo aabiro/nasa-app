@@ -8,7 +8,7 @@
   <p>Hello, <a routerLink="/profile" href>{{auth.userProfile?.name}}</a>!</p>
   <button (click)="auth.logout()">Log Out</button>
 
-  <div *ngIf="dragonsExist">
+  <!-- <div *ngIf="dragonsExist">
     <h2>Here Be Dragons</h2>
 
     <ul>
@@ -17,4 +17,58 @@
       </li>
     </ul>
   </div>
-</div>
+</div> -->
+
+
+  <h1>Bears</h1>
+  <p>Click "Get Bears" button to show the list of records in the database. Hover over a bear to see the ID.</p>
+  <ul id="bears"></ul>
+  <button onClick="getBears()">Get Bears</button>
+  <p>Add a bear : <input type="text" name="name"  id="save_bear"/> <button onClick="saveBear()">Save</button></p>
+
+<script>
+  function createNode(element) {
+      return document.createElement(element);
+  }
+  function append(parent, el) {
+    return parent.appendChild(el);
+  }
+  function removeChild(root) {
+    while ( root.firstChild ) {
+      root.removeChild( root.firstChild );
+    }
+  }
+  function getBears(){
+      const ul = document.getElementById('bears');
+      const url = '/api/bears';
+      removeChild(ul); // remove list elements if there are any
+      fetch(url)
+      .then((resp) => resp.json())
+      .then(function(data) {
+        console.log(data);
+        return data.map(function(bear) {
+          let li = createNode('li'),
+            span = createNode('span');
+          span.innerHTML = bear.name;
+          span.setAttribute("title", `ID: ${bear._id}`)
+          append(li, span);
+          append(ul, li);
+        })
+      })
+      .catch(function(error) {
+        console.log(JSON.stringify(error));
+      });
+    }
+
+    function saveBear() {
+      fetch('/api/bears', {
+      	method: 'post',
+      	headers: {'Content-Type': 'application/json'},
+      	body: JSON.stringify({name: document.getElementById('save_bear').value})
+      })
+      .then(getBears()); // load the new list
+    }
+
+    // Uncomment the line below to populate the page when first loaded
+    // getBears();
+</script>
