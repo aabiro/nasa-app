@@ -12,7 +12,8 @@ import { ProfileComponent } from './profile/profile.component';
 
 import { SampleComponent } from './sample/sample.component';
 import {SampleService} from './sample.service';
-import { HeaderComponent } from './header/header.component'
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component'
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { HeaderComponent } from './header/header.component'
     CallbackComponent,
     ProfileComponent,
     SampleComponent,
-    HeaderComponent
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
