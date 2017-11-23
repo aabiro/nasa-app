@@ -10,12 +10,18 @@ import { HomeComponent } from './home/home.component';
 import { CallbackComponent } from './callback/callback.component';
 import { ProfileComponent } from './profile/profile.component';
 
+import { SampleComponent } from './sample/sample.component';
+import {SampleService} from './sample.service';
+import { HeaderComponent } from './header/header.component'
+
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     CallbackComponent,
-    ProfileComponent
+    ProfileComponent,
+    SampleComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +31,8 @@ import { ProfileComponent } from './profile/profile.component';
   ],
   providers: [
     ApiService,
-    AuthService
+    AuthService,
+    SampleService
   ],
   bootstrap: [AppComponent]
 })

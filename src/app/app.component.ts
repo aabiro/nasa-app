@@ -7,8 +7,19 @@ import { AuthService } from './auth/auth.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  loadedFeature = 'recipe';
+  title = 'NASA Image App'
+
+
+
   constructor(private auth: AuthService) {
     // Check for authentication and handle if hash present
     auth.handleAuth();
   }
+
+
+onNavigate(feature: string) {
+  this.loadedFeature = feature;
+}
+
 }
