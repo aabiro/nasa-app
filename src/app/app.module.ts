@@ -13,7 +13,11 @@ import { ProfileComponent } from './profile/profile.component';
 import { SampleComponent } from './sample/sample.component';
 import {SampleService} from './sample.service';
 import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component'
+import { FooterComponent } from './footer/footer.component';
+import { PublicPageComponent } from './public-page/public-page.component';
+import { PrivatePageComponent } from './private-page/private-page.component';
+import { RegisterComponent } from './register/register.component';
+import { SearchBarComponent } from './search-bar/search-bar.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +27,11 @@ import { FooterComponent } from './footer/footer.component'
     ProfileComponent,
     SampleComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    PublicPageComponent,
+    PrivatePageComponent,
+    RegisterComponent,
+    SearchBarComponent
   ],
   imports: [
     BrowserModule,

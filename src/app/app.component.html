@@ -1,14 +1,23 @@
 <!-- <app-header (featureSelected)="onNavigate($event)"></app-header> -->
 <app-header></app-header>
 <div style="text-align:center">
-  <h1>
-    {{title}}
-  </h1>
-  <h4><i>A place to collect and share images from space!</i></h4>
-</div>
-<router-outlet></router-outlet>
+ <div class="container-fluid">
+   <div class="row">
+     <div class="col-md-6" style="float: left;">
+      <h1>
+       {{title}}
+     </h1>
+     <h4><i>A place to collect and share images from space!</i></h4>
+     </div>
+     <div class="col-md-6" style="float: left;">
+      <img src="../assets/images/nasa_image.png"/>
+     </div>
+   </div>
+   <br>
+   <router-outlet></router-outlet>
 
-NASA's IMAGE OF THE DAY:
-<app-sample></app-sample>
-<br>
-<app-footer></app-footer>
+   <br>
+
+ </div>
+    <app-footer></app-footer>
+</div>

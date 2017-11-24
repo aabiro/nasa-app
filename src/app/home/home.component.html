@@ -1,16 +1,56 @@
+<div style="text-align:center">
+  <br>
+  <br>
 
-  <p>Search NASA Image Collections : <input type="text" name="name"  id="search_nasa"/> <button onClick="saveBear()">Search</button></p>
+  <!-- make form not input -->
+  <p>Search NASA Image Library :
+    <input
+    type="text" name="name"
+    id="search_nasa"
+    placeholder="Search for..."
+    size="75"/>
+<!-- <button onClick="saveBear()">Search</button> -->
+<a
+href="#"
+class="btn btn-primary btn-lg"
+color="blue;"
+>
+  <span
+  style="font-size: 1em;"
+  class="glyphicon glyphicon-search"
+  ></span>
+</a>
+  </p>
 <hr>
-<div *ngIf="!auth.authenticated">
-  <button (click)="auth.login()">Log In</button>
+
+
+<div class="jumbotron">
+  <div style="text-align:center">
+    <div *ngIf="auth.authenticated">
+      <p>Hello, <a routerLink="/profile" href>{{auth.userProfile?.name}}</a>!</p>
+    </div>
+    <h3>About</h3>
+    <p>
+      This website is a place where thousands of people share
+      their love of space and the great images NASA makes available.
+      You can save your own collections, as well as rate and look through
+      the collections that other people create. Happy searching!
+    </p>
+    <div *ngIf="!auth.authenticated">
+      <a class="btn btn-primary btn-lg" (click)="auth.login()">Log In</a>
+      <!-- <button (click)="auth.login()">Log In</button> -->
+    </div>
+
+    <div *ngIf="auth.authenticated">
+
+      <a class="btn btn-primary btn-lg" (click)="auth.logout()">Log Out</a>
+
+    </div>
+  </div>
 </div>
 
-<div *ngIf="auth.authenticated">
-  <p>Hello, <a routerLink="/profile" href>{{auth.userProfile?.name}}</a>!</p>
-  <button (click)="auth.logout()">Log Out</button>
-
-<hr>
-<br>
+NASA's IMAGE OF THE DAY:
+<app-sample></app-sample>
   <!-- <h1>Images</h1>
   <p>Click "Get Images" button to show the list of records in the database. Hover over an image to see the ID.</p>
   <ul id="bears"></ul>

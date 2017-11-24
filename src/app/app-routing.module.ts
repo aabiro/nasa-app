@@ -5,6 +5,8 @@ import { AuthGuard } from './auth/auth.guard';
 import { HomeComponent } from './home/home.component';
 import { CallbackComponent } from './callback/callback.component';
 import { ProfileComponent } from './profile/profile.component';
+import { PublicPageComponent } from './public-page/public-page.component';
+import { PrivatePageComponent } from './private-page/private-page.component';
 
 @NgModule({
   imports: [
@@ -19,15 +21,20 @@ import { ProfileComponent } from './profile/profile.component';
       },
       {
         path: 'profile',
-        component: ProfileComponent,
-        canActivate: [
-          AuthGuard
-        ]
+        component: ProfileComponent
+      },
+      // {
+      //   path: '**',
+      //   redirectTo: '',
+      //   pathMatch: 'full'
+      // },
+      {
+        path: 'public',
+        component: PublicPageComponent
       },
       {
-        path: '**',
-        redirectTo: '',
-        pathMatch: 'full'
+        path: 'private',
+        component: PrivatePageComponent,
       }
     ])
   ],

@@ -1,0 +1,37 @@
+<br>
+<br>
+
+<!-- make form not input -->
+<p>Search NASA Image Library :
+  <input
+  type="text" name="name"
+  id="search_nasa"
+  placeholder="Search for..."
+  size="75"/>
+<!-- <button onClick="saveBear()">Search</button> -->
+<a
+href="#"
+class="btn btn-primary btn-lg"
+color="blue;"
+>
+<span
+style="font-size: 1em;"
+class="glyphicon glyphicon-search"
+></span>
+</a>
+</p>
+
+<div *ngIf="!auth.authenticated">
+<a class="btn btn-primary btn-lg" (click)="auth.login()">Log In</a>
+</div>
+
+<div *ngIf="auth.authenticated">
+<p>Hello, <a routerLink="/profile">{{auth.userProfile?.name}}</a>!</p>
+<a class="btn btn-primary btn-lg" (click)="auth.logout()">Log Out</a>
+</div>
+
+<br>
+
+<p>
+  <a href="/">Back to Home</a>
+</p>

@@ -8,6 +8,7 @@ import { AuthService } from './../auth/auth.service';
 })
 export class ProfileComponent implements OnInit {
   profileArray = this._makeProfileArray(this.auth.userProfile);
+  pic = this._makeProfilePic(this.auth.userProfile.picture);
 
   constructor(public auth: AuthService) { }
 
@@ -25,6 +26,10 @@ export class ProfileComponent implements OnInit {
     }
 
     return keyPropArray;
+  }
+
+  private _makeProfilePic(obj) {
+    return this.auth.userProfile.picture;
   }
 
 }

@@ -1,11 +1,21 @@
-<h1>{{auth.userProfile.name}}</h1>
+<div style="text-align:center">
+ <div class="container-fluid">
+<div *ngIf="!auth.authenticated">
+<app-register></app-register>
+</div>
 
+
+<img class="img-circle" src={{pic}}/>
+
+<h1>{{auth.userProfile.name}}</h1>
 <ul>
   <li *ngFor="let profileProp of profileArray">
     <code>{{profileProp}}</code>
   </li>
 </ul>
 
+</div>
 <p>
-  <a routerLink="/" href>Back to Home</a>
+  <a href="/">Back to Home</a>
 </p>
+</div>

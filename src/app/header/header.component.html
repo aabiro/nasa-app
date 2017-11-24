@@ -6,16 +6,16 @@
     <!-- <div class="collapse navbar-collapse"> -->
     <div class="navbar-default">
       <ul class="nav navbar-nav">
-        <li><a href="#">Profile</a></li>
-        <li><a href="#">Public Images</a></li>
-        <li><a href="#">Private Images</a></li>
+        <li><a routerLink="/profile">Profile</a></li>
+        <li><a routerLink="/public">Public Collections</a></li>
+        <li><a routerLink="/private">My Private Collections</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" role="button">Account <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Login</a></li>
-            <li><a href="#">Logout</a></li>
+            <li><a (click)="auth.login()">Login</a></li>
+            <li><a (click)="auth.login()">Logout</a></li>
           </ul>
         </li>
       </ul>

@@ -1,0 +1,14 @@
+
+<div style="text-align:center">
+ <div class="container-fluid">
+   <div *ngIf="!auth.authenticated">
+<app-register></app-register>
+</div>
+   <div *ngIf="auth.authenticated">
+<app-search-bar></app-search-bar>
+<p>
+  private-page works!
+</p>
+</div>
+</div>
+</div>
