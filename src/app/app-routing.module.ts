@@ -34,7 +34,7 @@ import { PrivatePageComponent } from './private-page/private-page.component';
       },
       {
         path: 'private',
-        component: PrivatePageComponent,
+        component: PrivatePageComponent
       }
     ])
   ],

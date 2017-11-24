@@ -8,7 +8,7 @@ import { AuthService } from './../auth/auth.service';
 })
 export class SearchBarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private auth: AuthService) { }
 
   ngOnInit() {
   }

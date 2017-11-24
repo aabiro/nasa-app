@@ -31,9 +31,9 @@ color="blue;"
     </div>
     <h3>About</h3>
     <p>
-      This website is a place where thousands of people share
-      their love of space and the great images NASA makes available.
-      You can save your own collections, as well as rate and look through
+      This website is a place where people share
+      their love of space travel with the great images NASA makes available.
+      You can save your own collections of pictures, as well browse and rate
       the collections that other people create. Happy searching!
     </p>
     <div *ngIf="!auth.authenticated">
@@ -41,6 +41,7 @@ color="blue;"
       <!-- <button (click)="auth.login()">Log In</button> -->
     </div>
 
+<!-- move to nav later -->
     <div *ngIf="auth.authenticated">
 
       <a class="btn btn-primary btn-lg" (click)="auth.logout()">Log Out</a>
