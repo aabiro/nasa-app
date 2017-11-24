@@ -192,18 +192,56 @@
 // console.log('Listening on localhost:3001');
 
 
-var express = require('express');
-var app = express();
-var bodyParser = require('body-parser');
+// var express = require('express');
+// var app = express();
+// var bodyParser = require('body-parser');
 const https = require('https');
+
+
+
+// Modules
+const express = require('express');
+const path = require('path');
+const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
+const methodOverride = require('method-override');
+const cors = require('cors');
+// Config
+const config = require('./config');
+
+/*
+ |--------------------------------------
+ | MongoDB
+ |--------------------------------------
+ */
+
+mongoose.connect(config.MONGO_URI, { useMongoClient: true });
+const monDb = mongoose.connection;
+
+monDb.on('error', function() {
+  console.error('MongoDB Connection Error. Please make sure that', config.MONGO_URI, 'is running.');
+});
+
+monDb.once('open', function callback() {
+  console.info('Connected to MongoDB:', config.MONGO_URI);
+});
+
+//var app = express();
+
+const app = express();
+// Start server on port 8081
+// It is important to start Node on a different port
+//var port = 8081;
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(methodOverride('X-HTTP-Method-Override'));
+app.use(cors());
 
+const port = process.env.PORT || '8081';
+app.set('port', port);
 
-// Start server on port 8081
-// It is important to start Node on a different port
-var port = 8081;
+require('./api')(app, config);
 
 var router = express.Router();
 
@@ -239,5 +277,5 @@ https.get('https://api.nasa.gov/planetary/apod?api_key=MiPeV23XBjdbZie9qxzZlVwuE
 
 app.use('/api', router);
 
-app.listen(port);
-console.log('Server is running on port ' + port)
+app.listen(port, () => console.log(`Server running on localhost:${port}`));
+//console.log('Server is running on port ' + port)

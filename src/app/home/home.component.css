@@ -1,3 +1,11 @@
 .jumbotron {
   margin: 40px;
 }
+
+input {
+  height: 42px !important;
+}
+
+p{
+  font-size: 20px;
+}

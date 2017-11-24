@@ -8,7 +8,7 @@ import { AuthService } from './../auth/auth.service';
 })
 export class ProfileComponent implements OnInit {
   profileArray = this._makeProfileArray(this.auth.userProfile);
-  pic = this._makeProfilePic(this.auth.userProfile.picture);
+  pic = this._makeProfilePic(this.auth.userProfile);
 
   constructor(public auth: AuthService) { }
 
@@ -24,12 +24,20 @@ export class ProfileComponent implements OnInit {
         keyPropArray.push(key + ': ' + obj[key]);
       }
     }
-
     return keyPropArray;
   }
 
+//   private _makeProfilePic(obj) {
+//     for (const key in obj) {
+//       if (key==picture) {
+//         return obj[key];
+//       }
+//     }
+//     return '../assets/images/nasa_image.png';
+// }
+
   private _makeProfilePic(obj) {
-    return this.auth.userProfile.picture;
+    return obj.picture;
   }
 
 }
