@@ -243,14 +243,15 @@ app.set('port', port);
 
 require('./api')(app, config);
 
+//not being called
 var router = express.Router();
-
 router.use(function(req, res, next) {
     console.log(res);
     console.log('Something is happening');
     next();
 });
 
+//not being called
 router.get('/', function(req, res) {
 let data = '';
 
@@ -276,6 +277,5 @@ https.get('https://api.nasa.gov/planetary/apod?api_key=MiPeV23XBjdbZie9qxzZlVwuE
 });
 
 app.use('/api', router);
-
 app.listen(port, () => console.log(`Server running on localhost:${port}`));
 //console.log('Server is running on port ' + port)
