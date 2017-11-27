@@ -1,23 +1,16 @@
 <div style="text-align:center">
  <div class="container-fluid">
-
    <div *ngIf="auth.authenticated">
-
-      <img class="img-circle" src={{pic}}>
-
+      <img class="img-circle" src={{_makeProfilePic()}}>
       <h1>{{auth.userProfile.name}}</h1>
       <ul>
         <li *ngFor="let profileProp of profileArray">
           <code>{{profileProp}}</code>
         </li>
       </ul>
-
     </div>
     <div *ngIf="!auth.authenticated">
        <app-register></app-register>
      </div>
   </div>
-  <p>
-    <a href="/">Back to Home</a>
-  </p>
 </div>
