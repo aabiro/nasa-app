@@ -5,7 +5,21 @@
 <app-register></app-register>
 </div>
    <div *ngIf="auth.authenticated">
-<app-search-bar></app-search-bar>
+<br>
+   <h1 class="text-center">{{pageTitle}}</h1>
+<app-collections></app-collections>
+<br>
+<p>
+<a
+href="#"
+class="btn btn-primary btn-lg"
+color="blue;"
+>
+<span
+class="glyphicon glyphicon-plus"
+></span> Create A New Collection
+</a>
+</p>
 <p>
   private-page works!
 </p>

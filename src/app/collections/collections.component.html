@@ -1,0 +1,39 @@
+
+<!-- <app-loading *ngIf="loading"></app-loading> -->
+
+<!-- <ng-template [ngIf]="utils.isLoaded(loading)"> -->
+  <ng-template [ngIf]="colList">
+    <ng-template [ngIf]="colList.length">
+
+      <!-- Search events -->
+
+      <!-- No search results -->
+      <!-- <p *ngIf="fs.noSearchResults(filteredEvents, query)" class="alert alert-warning">
+        No events found for <em class="text-danger">{{query}}</em>, sorry!
+      </p> -->
+
+      <!-- Collection listing -->
+      <section class="list-group">
+        <a
+          *ngFor="let col of colList"
+          class="list-group-item list-group-item-action flex-column align-items-start">
+          <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1" [innerHTML]="col.title"></h5>
+            <!-- <small>{{utils.eventDates(event.startDatetime, event.endDatetime)}}</small> -->
+          </div>
+        </a>
+      </section>
+    </ng-template>
+
+    <!-- No upcoming public events available -->
+    <p *ngIf="!colList.length" class="alert alert-info">
+      No public collections available.
+    </p>
+  </ng-template>
+
+  <!-- Error loading events -->
+  <p *ngIf="error" class="alert alert-danger">
+    <strong>Oops!</strong> There was an error retrieving collections.
+  </p>
+
+<!-- </ng-template> -->
