@@ -1,23 +1,23 @@
 <p>
+  <b>{{response.title}}</b>
   <img
-  src={{response}}
-  style="width: 400px; height: 400px;"/>
+  src={{response}}/>
 </p>
+<p>{{response.explanation}}</p>
 <button
 (click)="onClick()">Click Me</button>
 
-<p>
-  <img
-  src={{response}}
-  style="width: 400px; height: 400px;"/>
-</p>
 <button
-(click)="onClick()">Click Me</button>
+(click)="getNASA()">GET IMAGES from MARS</button>
 
-<p>
-  <img
-  src={{response}}
-  style="width: 400px; height: 400px;"/>
-</p>
-<button
-(click)="onClick()">Click Me</button>
+<!-- <div class="container">
+  <div class="row">
+    <div
+    *ngFor="let res of response2"
+    class="col-md-4">
+      <img
+      src={{res.url}}/>
+    </div>
+  </div> -->
+
+<p>{{response2}}</p>

@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HttpModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
+import { StarRatingModule } from 'angular-star-rating';
 //import { ApiService } from './api.service';
 import { ApiService } from './core/api.service';
 import { AuthService } from './auth/auth.service';
@@ -21,6 +22,7 @@ import { RegisterComponent } from './register/register.component';
 import { SearchBarComponent } from './search-bar/search-bar.component';
 import { LoadingComponent } from './core/loading.component';
 import { CollectionsComponent } from './collections/collections.component';
+import { MyEventsComponent } from './my-events-component/my-events-component.component';
 
 @NgModule({
   declarations: [
@@ -36,13 +38,15 @@ import { CollectionsComponent } from './collections/collections.component';
     RegisterComponent,
     SearchBarComponent,
     LoadingComponent,
-    CollectionsComponent
+    CollectionsComponent,
+    MyEventsComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    StarRatingModule.forRoot()
   ],
   providers: [
     ApiService,

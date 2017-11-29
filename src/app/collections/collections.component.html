@@ -20,11 +20,16 @@
           <div class="d-flex w-100 justify-content-between">
             <h5 class="mb-1" [innerHTML]="col.title"></h5>
             <!-- <small>{{utils.eventDates(event.startDatetime, event.endDatetime)}}</small> -->
+            <!-- <star-rating-comp [staticColor]="'positive'"></star-rating-comp> -->
+            <star-rating-comp [starType]="'icon'"></star-rating-comp>
+              <!-- <app-my-events-component></app-my-events-component> -->
           </div>
+              <!-- <star-rating-comp [starType]="'svg'" [rating]="2.63"></star-rating-comp> -->
         </a>
       </section>
     </ng-template>
-
+<star-rating-comp [starType]="'icon'"></star-rating-comp>
+<star-rating-comp [numOfStars]="6"></star-rating-comp>
     <!-- No upcoming public events available -->
     <p *ngIf="!colList.length" class="alert alert-info">
       No public collections available.

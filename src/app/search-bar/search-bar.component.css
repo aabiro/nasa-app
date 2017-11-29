@@ -1,15 +1,8 @@
-section {
-  height: 42px !important;
-}
-
 input {
   height: 42px !important;
 }
-button {
-  height: 42px !important;
-}
-label {
-  height: 43px !important;
+.btn {
+  height: 45px !important;
 }
 
 p{

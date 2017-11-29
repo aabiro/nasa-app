@@ -4,6 +4,6 @@ export class Collection.Model {
       public description: string,
       public isPrivate: boolean,
       public images: string,
-      public ratings: string
-    ) { }
+      public ratings: string,
+    ) { }  
 }
