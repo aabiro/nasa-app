@@ -6,6 +6,8 @@
  */
 const Collection = require('./models/collection');
 const Image = require('./models/image');
+const Dcma = require('./models/dcma');
+const Privacy = require('./models/privacy');
 
 const jwt = require('express-jwt');
 const jwks = require('jwks-rsa');
@@ -59,6 +61,22 @@ app.get('/api/collections', (req, res) => {
   			res.json(collection);
   		});
   	});
+
+  app.get('/api/dcma', (req, res) => {
+    		Dcma.find(function(err, dcma) {
+    			if (err)
+    				res.send(err);
+    			res.json(dcma);
+    		});
+    	});
+
+  app.get('/api/privacy', (req, res) => {
+    		Privacy.find(function(err, privacy) {
+    			if (err)
+    				res.send(err);
+    			res.json(privacy);
+    		});
+    	});
 
 app.get('/api/images', (req, res) => {
   //use nasa url here, res.send(data.body)//use the body to fill up the array

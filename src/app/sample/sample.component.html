@@ -7,17 +7,57 @@
 <button
 (click)="onClick()">Click Me</button>
 
+
+<br>
+<br>
+
+<!-- make form not input -->
+<!-- <p>Search NASA Image Library : -->
+
+  <!-- <section class="search input-group mb-3">
+    <label class="input-group-addon" for="search">Search</label>
+    <input
+      id="search"
+      type="text"
+      class="form-control" />
+      <span class="input-group-btn">
+        <button
+          class="btn btn-primary">&times;</button>&#xe003;
+      </span>
+  </section> -->
+
+
+
+<input type="text"
+  name="name"
+  [(ngModel)]="qeury"
+  placeholder=" Search NASA's Image Library..."
+  size="100"/>
+
+<!-- <a class="btn btn-primary btn-lg" -->
 <button
-(click)="getNASA()">GET IMAGES from MARS</button>
+(click)="getNASA()"
+color="blue;">
+<span style="font-size: 1em;" class="glyphicon glyphicon-search"></span>
+<!-- </a> -->
+</button>
+<hr>
+
+<!-- <button
+(click)="getNASA()">GET IMAGES from MARS</button> -->
 
 <!-- <div class="container">
-  <div class="row">
+  <div class="row"> -->
     <div
     *ngFor="let res of response2"
     class="col-md-4">
+    <a href={{res}} target="_blank">
       <img
-      src={{res.url}}/>
+      style="width: 75%; height: 75%; margin: 20px;"
+      src={{res}}/>
+      </a>
     </div>
-  </div> -->
 
-<p>{{response2}}</p>
+  <!-- </div> -->
+
+<!-- <p>{{response2}}</p> -->

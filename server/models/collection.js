@@ -6,7 +6,7 @@ const collectionSchema = new Schema({
  description: { type: String, required: true },
  isPrivate: { type: Boolean, required: true },
  images: { type: [] },
- ratings: {type: []},
+ ratings: { type: [] },
 });
 
 module.exports = mongoose.model('Collection', collectionSchema);
