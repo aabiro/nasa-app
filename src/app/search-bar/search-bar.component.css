@@ -1,6 +1,9 @@
 input {
   height: 42px !important;
 }
+.btn {
+  height: 45px !important;
+}
 
 p{
   font-size: 20px;

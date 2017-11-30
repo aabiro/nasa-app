@@ -7,6 +7,7 @@ import { AuthService } from './../auth/auth.service';
   styleUrls: ['./private-page.component.css']
 })
 export class PrivatePageComponent implements OnInit {
+  pageTitle = 'My Image Collections';
 
   constructor(private auth: AuthService) { }
 

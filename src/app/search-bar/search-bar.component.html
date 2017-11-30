@@ -2,13 +2,28 @@
 <br>
 
 <!-- make form not input -->
-<p>Search NASA Image Library :
+<!-- <p>Search NASA Image Library : -->
+
+  <!-- <section class="search input-group mb-3">
+    <label class="input-group-addon" for="search">Search</label>
+    <input
+      id="search"
+      type="text"
+      class="form-control" />
+      <span class="input-group-btn">
+        <button
+          class="btn btn-primary">&times;</button>&#xe003;
+      </span>
+  </section> -->
+
+
+
   <input
   type="text"
   name="name"
   id="search_nasa"
-  placeholder="Search for..."
-  size="75"/>
+  placeholder=" Search NASA's Image Library..."
+  size="100"/>
 <!-- <button onClick="saveBear()">Search</button> -->
 <a
 href="#"
@@ -20,11 +35,11 @@ style="font-size: 1em;"
 class="glyphicon glyphicon-search"
 ></span>
 </a>
-</p>
+<!-- </p> -->
 
-<div *ngIf="!auth.authenticated">
+<!-- <div *ngIf="!auth.authenticated">
 <a class="btn btn-primary btn-lg" (click)="auth.login()">Log In</a>
-</div>
+</div> -->
 
 <!-- <div *ngIf="auth.authenticated">
 <p>Hello, <a routerLink="/profile">{{auth.userProfile?.name}}</a>!</p>
@@ -32,7 +47,3 @@ class="glyphicon glyphicon-search"
 </div> -->
 
 <br>
-
-<p>
-  <a href="/">Back to Home</a>
-</p>
