@@ -23,6 +23,9 @@ import { SearchBarComponent } from './search-bar/search-bar.component';
 import { LoadingComponent } from './core/loading.component';
 import { CollectionsComponent } from './collections/collections.component';
 import { MyEventsComponent } from './my-events-component/my-events-component.component';
+import { AdminDashComponent } from './admin-dash/admin-dash.component';
+import { DmcaComponent } from './dmca/dmca.component';
+import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +42,10 @@ import { MyEventsComponent } from './my-events-component/my-events-component.com
     SearchBarComponent,
     LoadingComponent,
     CollectionsComponent,
-    MyEventsComponent
+    MyEventsComponent,
+    AdminDashComponent,
+    DmcaComponent,
+    PrivacyPolicyComponent
   ],
   imports: [
     BrowserModule,
