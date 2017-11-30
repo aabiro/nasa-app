@@ -7,6 +7,9 @@ import { CallbackComponent } from './callback/callback.component';
 import { ProfileComponent } from './profile/profile.component';
 import { PublicPageComponent } from './public-page/public-page.component';
 import { PrivatePageComponent } from './private-page/private-page.component';
+import { AdminDashComponent } from './admin-dash/admin-dash.component';
+import { DmcaComponent } from './dmca/dmca.component';
+import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
 
 @NgModule({
   imports: [
@@ -31,6 +34,18 @@ import { PrivatePageComponent } from './private-page/private-page.component';
       {
         path: 'public',
         component: PublicPageComponent
+      },
+      {
+        path: 'privacy',
+        component: PrivacyPolicyComponent
+      },
+      {
+        path: 'admin',
+        component: AdminDashComponent
+      },
+      {
+        path: 'dmca',
+        component: DmcaComponent
       },
       {
         path: 'private',

@@ -56,7 +56,6 @@ app.get('/api/collections', (req, res) => {
   		Collection.find(function(err, collection) {
   			if (err)
   				res.send(err);
-
   			res.json(collection);
   		});
   	});

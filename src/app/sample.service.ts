@@ -25,8 +25,10 @@ export class SampleService {
   searchNasa(callback_fun) {
        this.http.get('/api').subscribe(data => {
       // this.http.get('https://images-api.nasa.gov/search?q=mars').subscribe(data => {
-          console.log(data);
-          callback_fun(data);
+          console.log(data.constructor);
+          var res = JSON.parse(data);
+          console.log(res);
+          callback_fun(res['collection']['items'][1]['links'][0]['href']);
           //callback_fun(data[0].items[0]);
       });
   }
