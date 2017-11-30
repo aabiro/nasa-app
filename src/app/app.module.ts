@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HttpModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
+import {NgxPaginationModule} from 'ngx-pagination';
 import { StarRatingModule } from 'angular-star-rating';
 //import { ApiService } from './api.service';
 import { ApiService } from './core/api.service';
@@ -55,6 +56,7 @@ import { CollectionDetailComponent } from './collections/collection-detail/colle
     FormsModule,
     HttpClientModule,
     AppRoutingModule,
+    NgxPaginationModule,
     StarRatingModule.forRoot()
   ],
   providers: [

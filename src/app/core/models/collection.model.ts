@@ -5,5 +5,5 @@ export class Collection.Model {
       public isPrivate: boolean,
       public images: [],
       public ratings: string,
-    ) { };
+    ) { }
 }

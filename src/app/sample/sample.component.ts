@@ -10,18 +10,17 @@ import { HttpClient } from '@angular/common/http';
 })
 export class SampleComponent implements OnInit {
   NASA_SEARCH_URL = 'https://images-api.nasa.gov/search?q=';
+    // NASA_URL = 'https://images-api.nasa.gov/';
   // API_KEY = 'MiPeV23XBjdbZie9qxzZlVwuE4XObLn68C3BcWjV';
 //  nasa_search = 'https://images-api.nasa.gov/planetary/apod?api_key=MiPeV23XBjdbZie9qxzZlVwuE4XObLn68C3BcWjV';
   ImageArray = [];
-  query= "mars";
+  descArray = [];
+  query= "";
+  p: number = 1;
 
   // Initialize response with empty string
   response = '';
   response2 = '';  //array of image urls
-  //query = '';
-
-  // NASA_URL = 'https://images-api.nasa.gov/';
-  // API_KEY = 'MiPeV23XBjdbZie9qxzZlVwuE4XObLn68C3BcWjV';
 
   constructor(private _sampleService: SampleService, private http: HttpClient) { }
 
@@ -71,6 +70,7 @@ export class SampleComponent implements OnInit {
           for(var i = 0; i < itemArr.length; i++){
             if(itemArr[i]['links'][0]['render'] == 'image'){
               this.ImageArray.push(itemArr[i]['links'][0]['href']);
+              this.descArray.push(itemArr[i]['data'][0]['description']);
             }
           }
           console.log(this.ImageArray);

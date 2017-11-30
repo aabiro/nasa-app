@@ -1,3 +1,7 @@
+<div style="text-align:center">
+ <div class="container-fluid">
+   <div class="row">
+
 <p>
   <b>{{response.title}}</b>
   <img
@@ -10,7 +14,7 @@
 
 <br>
 <br>
-
+    </div>
 <!-- make form not input -->
 <!-- <p>Search NASA Image Library : -->
 
@@ -25,38 +29,65 @@
           class="btn btn-primary">&times;</button>&#xe003;
       </span>
   </section> -->
-
-
-
-<input type="text"
+<div class="row">
+  <input
+  type="text"
   name="name"
-  [(ngModel)]="qeury"
+  [(ngModel)]="query"
   placeholder=" Search NASA's Image Library..."
   size="100"/>
-
-<!-- <a class="btn btn-primary btn-lg" -->
-<button
+<!-- <button onClick="saveBear()">Search</button> -->
+<a
 (click)="getNASA()"
-color="blue;">
-<span style="font-size: 1em;" class="glyphicon glyphicon-search"></span>
-<!-- </a> -->
-</button>
-<hr>
+class="btn btn-primary btn-lg"
+color="blue;"
+>
+<span
+style="font-size: 1em;"
+class="glyphicon glyphicon-search"
+></span>
+</a>
 
+<hr>
+    </div>
 <!-- <button
 (click)="getNASA()">GET IMAGES from MARS</button> -->
 
 <!-- <div class="container">
   <div class="row"> -->
+  <div class="row">
     <div
-    *ngFor="let res of response2"
+    *ngFor="let res of response2 | paginate: { itemsPerPage: 6, currentPage: p };"
     class="col-md-4">
     <a href={{res}} target="_blank">
+      <div class="img__wrap">
       <img
-      style="width: 75%; height: 75%; margin: 20px;"
+      class="img__img"
+      style="width: 85%; height: 85%; margin: 20px;"
       src={{res}}/>
+      <p class="img__description">Click to enlarge.</p>
+      </div>
       </a>
     </div>
+    <div class="row">
+<div class="col-md-12">
+
+
+
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- <paging
+    page="currentPage"
+    page-size="pageSize"
+    total="total"
+    pg-href="#GotoPage-{page}"
+    paging-action="DoCtrlPagingAct('Paging Clicked', page, pageSize, total)">
+</paging>  -->
 
   <!-- </div> -->
 
