@@ -24,8 +24,10 @@ import { LoadingComponent } from './core/loading.component';
 import { CollectionsComponent } from './collections/collections.component';
 import { MyEventsComponent } from './my-events-component/my-events-component.component';
 import { AdminDashComponent } from './admin-dash/admin-dash.component';
-import { DmcaComponent } from './dmca/dmca.component';
+
 import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
+import { DcmaComponent } from './dcma/dcma.component';
+import { CollectionDetailComponent } from './collections/collection-detail/collection-detail.component';
 
 @NgModule({
   declarations: [
@@ -44,8 +46,9 @@ import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.componen
     CollectionsComponent,
     MyEventsComponent,
     AdminDashComponent,
-    DmcaComponent,
-    PrivacyPolicyComponent
+    DcmaComponent,
+    PrivacyPolicyComponent,
+    CollectionDetailComponent
   ],
   imports: [
     BrowserModule,

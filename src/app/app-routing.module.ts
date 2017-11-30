@@ -8,8 +8,10 @@ import { ProfileComponent } from './profile/profile.component';
 import { PublicPageComponent } from './public-page/public-page.component';
 import { PrivatePageComponent } from './private-page/private-page.component';
 import { AdminDashComponent } from './admin-dash/admin-dash.component';
-import { DmcaComponent } from './dmca/dmca.component';
+import { DcmaComponent } from './dcma/dcma.component';
 import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
+import { CollectionDetailComponent } from './collections/collection-detail/collection-detail.component';
+
 
 @NgModule({
   imports: [
@@ -36,6 +38,10 @@ import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.componen
         component: PublicPageComponent
       },
       {
+        path: 'detail',
+        component: CollectionDetailComponent
+      },
+      {
         path: 'privacy',
         component: PrivacyPolicyComponent
       },
@@ -44,8 +50,8 @@ import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.componen
         component: AdminDashComponent
       },
       {
-        path: 'dmca',
-        component: DmcaComponent
+        path: 'dcma',
+        component: DcmaComponent
       },
       {
         path: 'private',

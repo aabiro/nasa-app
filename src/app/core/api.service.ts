@@ -6,6 +6,8 @@ import 'rxjs/add/operator/catch';
 import { ENV } from './env.config';
 import { CollectionModel } from './models/collection.model';
 import { ImageModel } from './models/image.model';
+import { DcmaModel } from './models/dcma.model';
+import { PrivacyModel } from './models/privacy.model';
 
 @Injectable()
 export class ApiService {
@@ -24,6 +26,20 @@ export class ApiService {
     return this.http
       // .get(`${ENV.BASE_API}collections`)
       .get(`${this.baseUrl}collections`)
+      .catch(this._handleError);
+  }
+
+  getDcma$(): Observable<EventModel[]> {
+    return this.http
+      // .get(`${ENV.BASE_API}collections`)
+      .get(`${this.baseUrl}dcma`)
+      .catch(this._handleError);
+  }
+
+  getPrivacy$(): Observable<EventModel[]> {
+    return this.http
+      // .get(`${ENV.BASE_API}collections`)
+      .get(`${this.baseUrl}privacy`)
       .catch(this._handleError);
   }
 }
