@@ -11,7 +11,7 @@ import { AdminDashComponent } from './admin-dash/admin-dash.component';
 import { DcmaComponent } from './dcma/dcma.component';
 import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
 import { CollectionDetailComponent } from './collections/collection-detail/collection-detail.component';
-
+import { NewCollectionComponent } from './new-collection/new-collection.component';
 
 @NgModule({
   imports: [
@@ -38,8 +38,12 @@ import { CollectionDetailComponent } from './collections/collection-detail/colle
         component: PublicPageComponent
       },
       {
-        path: 'detail',
+        path: 'collection/:id',
         component: CollectionDetailComponent
+      },
+      {
+        path: 'private/new',
+        component: NewCollectionComponent
       },
       {
         path: 'privacy',

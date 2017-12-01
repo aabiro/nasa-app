@@ -1,5 +1,28 @@
-<p>
-  collection-detail works!
-</p>
+<div *ngIf="col && col.isDisabled == false">
+  <h2>{{ col.title | uppercase }}</h2>
+  <p>{{col.description}}</p>
+  <div class="row">
+    <div
+    *ngFor="let img of col.images  | paginate: { itemsPerPage: 6, currentPage: p };"
+    class="col-md-4">
+    <a href={{img}} target="_blank">
 
-{{col.title}}
+      <img
+      style="width: 55%; height: 55%; margin: 10px;"
+      src={{img}}/>
+
+      </a>
+    </div>
+
+  <!-- <div><span>id: </span>{{col._id}}</div>
+  <div>
+    <label>name:
+      <input [(ngModel)]="hero.name" placeholder="name"/>
+    </label>
+  </div>
+  <button (click)="goBack()">go back</button> -->
+</div>
+<div *ngIf="col.isDisabled == true">
+<span>{{col.isDisabled}}</span>
+</div>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>

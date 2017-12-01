@@ -13,10 +13,16 @@ import { CollectionModel } from './core/models/collection.model';
 })
 export class CollectionsComponent implements OnInit {
 //  pageTitle = 'Image Collections';
+  col: CollectionModel;
+
   colListSub: Subscription;
   colList: CollectionModel[];
+  selectedCol: CollectionModel;
   //filteredCols: CollectionModel[];
   //loading: boolean;
+
+  rating = 0;
+  ratingSum: number;
   error: boolean;
   query: '';
 
@@ -42,8 +48,6 @@ export class CollectionsComponent implements OnInit {
         res => {
           this.colList = res;
           console.log(res);
-          //this.filteredEvents = res;
-        //  this.loading = false;
         },
         err => {
           console.error(err);
@@ -53,6 +57,7 @@ export class CollectionsComponent implements OnInit {
       );
   }
 
+
   searchEvents() {
     //this.filteredEvents = this.fs.search(this.eventList, this.query, '_id', 'mediumDate');
   }
@@ -61,6 +66,11 @@ export class CollectionsComponent implements OnInit {
     //this.query = '';
     //this.filteredEvents = this.eventList;
   }
+
+  onSelect(col: CollectionModel): void {
+  this.selectedCol = col;
+  console.log(selectedCol);
+}
 
   ngOnDestroy() {
     this.colListSub.unsubscribe();

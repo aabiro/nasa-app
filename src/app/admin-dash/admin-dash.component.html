@@ -10,9 +10,14 @@
       <form>
         <div class="form-group">
           <label for="comment">DMCA Policy:</label>
-          <textarea class="form-control" rows="10"></textarea>
+          <textarea [(ngModel)]= "dcma" name="description" class="form-control" rows="10">{{dcma}}</textarea>
         </div>
-        <a class="btn btn-primary btn-lg">Submit</a>
+        <a class="btn btn-primary btn-lg">Update</a>
+
+        <button
+        (click)="updatePriv()"
+        class="btn btn-warning btn-lg"
+        >Create</button>
       </form>
       </div>
 
@@ -22,26 +27,91 @@
       <h1>Edit/Create Privacy Policy</h1>
       <hr>
       <form>
+      <!-- action="/api/privacy/5a206b3f6f52db4138dfeb91" method="PUT" accept-charset="UTF-8"> -->
         <div class="form-group">
           <label for="comment">Privcy Policy:</label>
-          <textarea class="form-control" rows="10"></textarea>
+          <textarea [(ngModel)]= "privacy" name="description" class="form-control" rows="10">{{privacy}}</textarea>
         </div>
-        <a class="btn btn-primary btn-lg">Submit</a>
-      </form>
-      </div>
+        <button
+        (click)="updatePriv()"
+        class="btn btn-primary btn-lg"
+        >Update</button>
 
+        <button
+        (click)="updatePriv()"
+        class="btn btn-warning btn-lg"
+        >Create</button>
+      </form>
+      <!-- </div> -->
+
+      <!-- <form  action="/privacy" method="PUT" accept-charset="UTF-8">
+    <textarea name="description" rows="7"  type="text" maxlength="200" placeholder="Add your message here..."></textarea>
+    <input hidden="true" name="privacy_id" value="5a206b3f6f52db4138dfeb91"/>
+    <button>Send</button>
+</form> -->
+
+    </div>
+    <br>
+    <hr>
+    <br>
+    <div class="row">
+
+      <h1>DMCA Takedown Notice Log</h1>
+<br>
+<p>STEP 1:<br>
+  <br>
+Recieve takedown notice sent to Admin email with URL to the collection.
+<br>
+<br>
+STEP 2:<br>
+<br>
+Log the URL here and investigate the instance. Disable the collection if infringement found, notify the user.
+<br>
+<br>
+STEP 3:<br>
+<br>
+Records are kept for 14 days. If dispute resolved with no issue, re-enable the collection. If not, delete the collection and notify the user.
+<br>
+
+</p>
+<br>
+    </div>
+<div style="text-align:center" class="row">
+
+
+  <div class="form-group">
+    <label>URL Given:</label>
+    <input
+     [(ngModel)]="notice"
+     size=100
+     type="text"
+     class="form-control"
+     placeholder="URL from email">
+  </div>
+
+<button
+    class="btn btn-primary"
+    (click)="saveNotices($event)"
+    >Log Notice</button>
     </div>
     <div class="row">
-      <h1>DMCA TakeDown Notices Recieved</h1>
-      <ul>
-        <li>first notice : Time to settle 12 days</li>
-        <li>2nd notice : Time to settle 12 days</li>
-        <li>3rd notice : Time to settle 3 days</li>
-      </ul>
-          ngIf some notices show in list
+<hr>
+<h1>TODO DMCA Notice Board:</h1>
+<ul>
+    <li *ngFor="let not of notices"
+    style="margin-top: 20px;">
+        {{not}}{{date}}
+                <button
+                (click)="updatePriv()"
+                class="btn btn-warning btn-xs"
+                style="margin-left: 20px;"
+                >Delete</button>
+    </li>
+</ul>
+</div>
+
+
+
     </div>
-
-
     </div>
-
 </div>

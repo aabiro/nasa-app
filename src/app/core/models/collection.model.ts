@@ -3,7 +3,8 @@ export class Collection.Model {
       public title: string,
       public description: string,
       public isPrivate: boolean,
+      public isDisabled: boolean,
       public images: [],
-      public ratings: string,
+      public ratings: number, 
     ) { }
 }

@@ -29,8 +29,8 @@ export class DcmaComponent implements OnInit {
       .subscribe(
         res => {
           //no error but nothing comes back
-          this.dcma = res;
-          console.log(res);
+          this.dcma = res[0]['description'];
+          //console.log(res[0]['description']);
         },
         err => {
           console.error(err);

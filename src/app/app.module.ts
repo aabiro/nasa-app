@@ -8,6 +8,7 @@ import { StarRatingModule } from 'angular-star-rating';
 //import { ApiService } from './api.service';
 import { ApiService } from './core/api.service';
 import { AuthService } from './auth/auth.service';
+import { DcmaService } from './dcma.service';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { CallbackComponent } from './callback/callback.component';
@@ -29,6 +30,7 @@ import { AdminDashComponent } from './admin-dash/admin-dash.component';
 import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
 import { DcmaComponent } from './dcma/dcma.component';
 import { CollectionDetailComponent } from './collections/collection-detail/collection-detail.component';
+import { NewCollectionComponent } from './new-collection/new-collection.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +51,8 @@ import { CollectionDetailComponent } from './collections/collection-detail/colle
     AdminDashComponent,
     DcmaComponent,
     PrivacyPolicyComponent,
-    CollectionDetailComponent
+    CollectionDetailComponent,
+    NewCollectionComponent
   ],
   imports: [
     BrowserModule,
@@ -62,7 +65,8 @@ import { CollectionDetailComponent } from './collections/collection-detail/colle
   providers: [
     ApiService,
     AuthService,
-    SampleService
+    SampleService,
+    DcmaService
   ],
   bootstrap: [AppComponent]
 })

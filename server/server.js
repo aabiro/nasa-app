@@ -146,55 +146,6 @@
 // 			res.json({ message: 'Successfully deleted' });
 // 		});
 // 	});
-//
-//
-// // const https = require('https');
-// //
-// // https.get('https://api.nasa.gov/planetary/apod?api_key=MiPeV23XBjdbZie9qxzZlVwuE4XObLn68C3BcWjV', (resp) => {
-// //   let data = '';
-// //
-// //   // A chunk of data has been recieved.
-// //   resp.on('data', (chunk) => {
-// //     data += chunk;
-// //   });
-// //
-// //   // The whole response has been received. Print out the result.
-// //   resp.on('end', () => {
-// //     console.log(JSON.parse(data).explanation);
-// //   });
-// //
-// // }).on("error", (err) => {
-// //   console.log("Error: " + err.message);
-// // });
-//
-// // const request = require('request');
-// //
-// // request('https://api.nasa.gov/planetary/apod?api_key=MiPeV23XBjdbZie9qxzZlVwuE4XObLn68C3BcWjV', { json: true }, (err, res, body) => {
-// //   if (err) { return console.log(err); }
-// //
-// //   console.log(body.url);
-// //   console.log(body.explanation);
-// // });
-// //
-// // console.log(request.body);
-// //
-// // console.log(request.body.text);
-//
-// // --- GET protected dragons route
-// // app.get('https://api.nasa.gov/planetary/apod?api_key=MiPeV23XBjdbZie9qxzZlVwuE4XObLn68C3BcWjV', jwtCheck, function (req, res) {
-// //   console.log(res);
-// //   res.json(dragonsJson);
-// //
-// // });
-//
-// //--- Port
-// app.listen(8081);
-// console.log('Listening on localhost:3001');
-
-
-// var express = require('express');
-// var app = express();
-// var bodyParser = require('body-parser');
 const https = require('https');
 
 
@@ -229,9 +180,6 @@ monDb.once('open', function callback() {
 //var app = express();
 
 const app = express();
-// Start server on port 8081
-// It is important to start Node on a different port
-//var port = 8081;
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -243,40 +191,12 @@ app.set('port', port);
 
 require('./api')(app, config);
 
-//not being called
 var router = express.Router();
 router.use(function(req, res, next) {
-    console.log(res);
+    //console.log(res);
     console.log('Something is happening');
     next();
 });
 
-// //not being called
-// router.get('/', function(req, res) {
-// // let data = '';
-//
-// https.get('https://api.nasa.gov/planetary/apod?api_key=MiPeV23XBjdbZie9qxzZlVwuE4XObLn68C3BcWjV', (resp) => {
-//
-// //   // A chunk of data has been recieved.
-// //   resp.on('data', (chunk) => {
-// //     data += chunk;
-// //   });
-// //
-// //   // The whole response has been received. Print out the result.
-// //   resp.on('end', () => {
-// //     console.log(JSON.parse(data).explanation); //this prints
-// //   //  console.log(JSON.parse(data).url);
-// //     //var obj = {copyright: }
-// //     //res.json(JSON.stringify(data));
-// //   });
-// //
-// // }).on("error", (err) => {
-// //   console.log("Error: " + err.message);
-// // });
-//     res.send(data);
-//   }//want to send this instead
-// });
-
 app.use('/api', router);
 app.listen(port, () => console.log(`Server running on localhost:${port}`));
-//console.log('Server is running on port ' + port)

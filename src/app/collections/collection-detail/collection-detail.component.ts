@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
+import { CollectionsComponent } from './collections.component';
 
 @Component({
   selector: 'app-collection-detail',
@@ -6,10 +9,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./collection-detail.component.css']
 })
 export class CollectionDetailComponent implements OnInit {
+ @Input() col: CollectionModel;
 
-  constructor() { }
+  constructor(
+    private route: ActivatedRoute,
+    //private colService: HeroService,
+    private location: Location
+  ) {}
 
-  ngOnInit() {
   }
-
-}
