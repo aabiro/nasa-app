@@ -15,4 +15,11 @@ export class HeaderComponent {
   //   this.featureSelected.emit(feature);
   // }
 
+
+    constructor(public auth: AuthService) { }
+
+    ngOnInit() {
+
+    }
+
 }

@@ -39,6 +39,17 @@ export class CollectionsComponent implements OnInit {
     this._getCollectionList();
   }
 
+  alert(){
+    //alert("Are you sure you want to delete?");
+    var hi= confirm("Are you sure you want to delete?");
+    if (hi== true){
+      //call deleteCollection
+        //alert("Deleted");
+    }else{
+        //alert("Meany!!!");
+    }
+  }
+
   private _getCollectionList() {
   //  this.loading = true;
     // Get future, public events

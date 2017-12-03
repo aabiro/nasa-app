@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./new-collection.component.css']
 })
 export class NewCollectionComponent implements OnInit {
+  //ownerid = this.auth.sub?
 
   constructor() { }
 

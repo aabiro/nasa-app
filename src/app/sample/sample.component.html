@@ -15,20 +15,7 @@
 <br>
 <br>
     </div>
-<!-- make form not input -->
-<!-- <p>Search NASA Image Library : -->
 
-  <!-- <section class="search input-group mb-3">
-    <label class="input-group-addon" for="search">Search</label>
-    <input
-      id="search"
-      type="text"
-      class="form-control" />
-      <span class="input-group-btn">
-        <button
-          class="btn btn-primary">&times;</button>&#xe003;
-      </span>
-  </section> -->
 <div class="row">
   <input
   type="text"
@@ -50,11 +37,7 @@ class="glyphicon glyphicon-search"
 
 <hr>
     </div>
-<!-- <button
-(click)="getNASA()">GET IMAGES from MARS</button> -->
 
-<!-- <div class="container">
-  <div class="row"> -->
   <div class="row">
     <div
     *ngFor="let res of response2 | paginate: { itemsPerPage: 6, currentPage: p };"
@@ -64,7 +47,8 @@ class="glyphicon glyphicon-search"
       <img
       class="img__img"
       style="width: 85%; height: 85%; margin: 20px;"
-      src={{res}}/>
+      src={{res}}
+      />
       <p class="img__description">Click to enlarge.</p>
       </div>
       </a>
@@ -79,16 +63,3 @@ class="glyphicon glyphicon-search"
         </div>
       </div>
     </div>
-
-
-    <!-- <paging
-    page="currentPage"
-    page-size="pageSize"
-    total="total"
-    pg-href="#GotoPage-{page}"
-    paging-action="DoCtrlPagingAct('Paging Clicked', page, pageSize, total)">
-</paging>  -->
-
-  <!-- </div> -->
-
-<!-- <p>{{response2}}</p> -->

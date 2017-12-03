@@ -8,11 +8,15 @@
     <a href={{img}} target="_blank">
 
       <img
-      style="width: 55%; height: 55%; margin: 10px;"
-      src={{img}}/>
+      style="width: 85%; height: 85%; margin: 10px;"
+      src={{img}}
+      />
 
       </a>
     </div>
+
+
+
 
   <!-- <div><span>id: </span>{{col._id}}</div>
   <div>
@@ -26,3 +30,17 @@
 <span>{{col.isDisabled}}</span>
 </div>
     <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    <!-- *ngIf="this.auth.userProfile.sub == 'google-oauth2|106682987121159098643'" -->
+    <div class="row"
+
+    >
+    <p>
+    <a
+    class="btn btn-danger btn-xs"
+    >
+    <span
+    class="glyphicon glyphicon-remove"
+    ></span> Report/Disable
+    </a>
+    </p>
+      </div>

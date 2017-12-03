@@ -12,6 +12,8 @@ import { DcmaComponent } from './dcma/dcma.component';
 import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
 import { CollectionDetailComponent } from './collections/collection-detail/collection-detail.component';
 import { NewCollectionComponent } from './new-collection/new-collection.component';
+import { EditComponent } from './edit/edit.component';
+
 
 @NgModule({
   imports: [
@@ -42,6 +44,10 @@ import { NewCollectionComponent } from './new-collection/new-collection.componen
         component: CollectionDetailComponent
       },
       {
+        path: 'edit',
+        component: EditComponent
+      },
+      {
         path: 'private/new',
         component: NewCollectionComponent
       },
@@ -51,7 +57,8 @@ import { NewCollectionComponent } from './new-collection/new-collection.componen
       },
       {
         path: 'admin',
-        component: AdminDashComponent
+        component: AdminDashComponent,
+        canActivate: [AuthGuard] 
       },
       {
         path: 'dcma',

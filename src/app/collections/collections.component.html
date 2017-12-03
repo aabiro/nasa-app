@@ -13,18 +13,62 @@
               [class.selected]="col === selectedCol"
               (click)="onSelect(col)"
               class="list-group-item list-group-item-action flex-column align-items-start">
-
               <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1" [innerHTML]="col.title"></h5>
-                <p>Rating: {{col.ratings}}</p>
+                <div class="row">
+                  <div class="col-md-4">
+
+
+
+                <!-- <b><h5 class="mb-1" [innerHTML]="col.title"></h5></b> -->
+                    <h4><b>{{col.title}}</b></h4>
+                    <div *ngIf="col.isDisabled">
+                      Takedown Notice
+                    </div>
+
+              </div>
+              <div class="col-md-4">
+
+                  <!-- <h5 class="mb-1" [innerHTML]="Rating: ">{{col.ratings}}</h5> -->
+                <h5>Rating: {{col.ratings}}</h5>
+</div>
+
                 <!-- <small>{{utils.eventDates(event.startDatetime, event.endDatetime)}}</small> -->
                 <!-- <star-rating-comp [staticColor]="'positive'"></star-rating-comp> -->
+                <div class="col-md-2" style="float: right;">
+
+
+                <p>
+                <a
+                routerLink="/private"
+                class="btn btn-danger btn-xs"
+                (click)="alert()"
+                >
+                <span
+                class="glyphicon glyphicon-remove"
+                ></span> Delete
+                </a>
+                          </p>
+</div>
+<div class="col-md-2" style="float: right;">
+
+
+
+                <p>
+                <a
+                routerLink="/edit"
+                class="btn btn-default btn-xs"
+                >
+                <span
+                class="glyphicon glyphicon-pencil"
+                ></span> Edit
+                </a>
+                </p>
                 <star-rating-comp [starType]="'icon'"></star-rating-comp>
                   <!-- <app-my-events-component></app-my-events-component> -->
               </div>
                   <!-- <star-rating-comp [starType]="'svg'" [rating]="2.63"></star-rating-comp> -->
-
-
+                </div>
+                  </div>
             </a>
              </ng-container>
 
@@ -50,7 +94,3 @@
 
   </div>
 </div>
-
-
-
-<!-- </ng-template> -->

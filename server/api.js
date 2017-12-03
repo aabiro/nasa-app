@@ -8,6 +8,7 @@ const Collection = require('./models/collection');
 const Image = require('./models/image');
 const Dcma = require('./models/dcma');
 const Privacy = require('./models/privacy');
+const Notice = require('./models/notice');
 
 const jwt = require('express-jwt');
 const jwks = require('jwks-rsa');
@@ -80,13 +81,38 @@ app.delete('/api/dcma', function(req, res) {
 });
 
 app.get('/api/collections', (req, res) => {
+  	//	Collection.find(function(err, collection) {
   		Collection.find(function(err, collection) {
   			if (err)
   				res.send(err);
   			res.json(collection);
   		}).sort({ratings: -1})
-      //.limit(10).sort({ratings: -1})
   	});
+
+app.get('/api/notice', (req, res) => {
+	//	Collection.find(function(err, collection) {
+		Notice.find(function(err, notice) {
+			if (err)
+				res.send(err);
+			res.json(notice);
+		}).sort({date: -1})
+	});
+
+  app.post('/api/notice', (req, res) => {
+    	//	Collection.find(function(err, collection) {
+    		var n = new Notice();
+        n.url = req.body.url;
+        n.date = new Date();
+        n.type = req.body.type;
+        n.note = req.body.note;
+
+        n.save(function(err) {
+            if (err)
+                res.send(err);
+
+            res.json({ message: 'notice created!' });
+        });
+    	});
 
 
 app.post('/api/collections', (req, res) => {

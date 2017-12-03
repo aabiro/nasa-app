@@ -16,6 +16,7 @@ export class AdminDashComponent implements OnInit {
   privacy = "";
   d: dcmaService;
   dcma = "";
+  type = "";
 
   //need reference to component
   constructor(private dcmaService: DcmaService, private http: HttpClient) {

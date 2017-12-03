@@ -7,6 +7,7 @@ const collectionSchema = new Schema({
  isPrivate: { type: Boolean, required: true },
  isDisabled: { type: Boolean },
  images: { type: [] },
+ ownerID: { type: Number },
  ratings: { type: Number }
 });
 

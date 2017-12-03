@@ -31,6 +31,7 @@ import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.componen
 import { DcmaComponent } from './dcma/dcma.component';
 import { CollectionDetailComponent } from './collections/collection-detail/collection-detail.component';
 import { NewCollectionComponent } from './new-collection/new-collection.component';
+import { EditComponent } from './edit/edit.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { NewCollectionComponent } from './new-collection/new-collection.componen
     DcmaComponent,
     PrivacyPolicyComponent,
     CollectionDetailComponent,
-    NewCollectionComponent
+    NewCollectionComponent,
+    EditComponent
   ],
   imports: [
     BrowserModule,

@@ -5,6 +5,7 @@ export class Collection.Model {
       public isPrivate: boolean,
       public isDisabled: boolean,
       public images: [],
-      public ratings: number, 
+      public ownerID: number,
+      public ratings: number,
     ) { }
 }
